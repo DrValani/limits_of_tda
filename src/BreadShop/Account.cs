@@ -4,7 +4,7 @@ namespace BreadShop
 {
     public class Account
     {
-        private int? _balance = 0;
+        private int _balance = 0;
         private readonly Dictionary<int, int> _orders = new Dictionary<int, int>();
 
         public int? GetBalance()
@@ -12,7 +12,7 @@ namespace BreadShop
             return _balance;
         }
 
-        public int? Deposit(int? creditAmount)
+        public int Deposit(int creditAmount)
         {
             _balance += creditAmount;
             return _balance;
@@ -23,7 +23,7 @@ namespace BreadShop
             _orders.Add(orderId, amount);
         }
 
-        public int? CancelOrder(int orderId)
+        public int CancelOrder(int orderId)
         {
             int value;
             if (_orders.TryGetValue(orderId, out value))
@@ -31,7 +31,7 @@ namespace BreadShop
                 _orders.Remove(orderId);
                 return value;
             }
-            return null;
+            return -1;
         }
     }
 

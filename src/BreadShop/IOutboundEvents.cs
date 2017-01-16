@@ -4,7 +4,7 @@
     {
         void AccountCreatedSuccessfully(int accountId);
 
-        void NewAccountBalance(int accountId, int? newBalanceAmount);
+        void NewAccountBalance(int accountId, int newBalanceAmount);
 
         void AccountNotFound(int accountId);
 
