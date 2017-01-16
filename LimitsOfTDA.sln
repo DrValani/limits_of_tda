@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreadShop", "src\BreadShop\BreadShop.csproj", "{A67D67D7-5A0E-497E-9FCE-21589C952B6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreadShopTest", "src\BreadShopTest\BreadShopTest.csproj", "{D5E5A7FD-F121-4A69-B462-EE87380C1497}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A67D67D7-5A0E-497E-9FCE-21589C952B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A67D67D7-5A0E-497E-9FCE-21589C952B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A67D67D7-5A0E-497E-9FCE-21589C952B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A67D67D7-5A0E-497E-9FCE-21589C952B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5E5A7FD-F121-4A69-B462-EE87380C1497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5E5A7FD-F121-4A69-B462-EE87380C1497}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5E5A7FD-F121-4A69-B462-EE87380C1497}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5E5A7FD-F121-4A69-B462-EE87380C1497}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
