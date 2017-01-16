@@ -4,25 +4,18 @@ namespace BreadShop
 {
     public class AccountRepository
     {
-        private Dictionary<int, Account> accounts = new Dictionary<int, Account>();
+        private readonly Dictionary<int, Account> _accounts = new Dictionary<int, Account>();
 
-        public AccountRepository()
+        public void AddAccount(int id, Account newAccount)
         {
+            _accounts.Add(id, newAccount);
         }
 
-        public void addAccount(int id, Account newAccount)
+        public Account GetAccount(int accountId)
         {
-            accounts.Add(id, newAccount);
-        }
-
-        public Account getAccount(int accountId)
-        {
-            Account account = null;
-            if (accounts.TryGetValue(accountId, out account))
-            {
-                return account;
-            };
-            return null;
+            Account account;
+            _accounts.TryGetValue(accountId, out account);
+            return account;
         }
     }
 }

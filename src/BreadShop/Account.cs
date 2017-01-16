@@ -5,7 +5,7 @@ namespace BreadShop
     public class Account
     {
         private int? _balance = 0;
-        private Dictionary<int, int> _orders = new Dictionary<int, int>();
+        private readonly Dictionary<int, int> _orders = new Dictionary<int, int>();
 
         public int? GetBalance()
         {
@@ -25,7 +25,7 @@ namespace BreadShop
 
         public int? CancelOrder(int orderId)
         {
-            int value = 0;
+            int value;
             if (_orders.TryGetValue(orderId, out value))
             {
                 _orders.Remove(orderId);

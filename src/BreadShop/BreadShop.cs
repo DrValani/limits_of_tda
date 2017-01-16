@@ -17,13 +17,13 @@ namespace BreadShop
         public void CreateAccount(int id)
         {
             var newAccount = new Account();
-            _accountRepository.addAccount(id, newAccount);
+            _accountRepository.AddAccount(id, newAccount);
             _events.AccountCreatedSuccessfully(id);
         }
 
         public void Deposit(int accountId, int creditAmount)
         {
-            var account = _accountRepository.getAccount(accountId);
+            var account = _accountRepository.GetAccount(accountId);
             if (account != null)
             {
                 var newBalance = account.Deposit(creditAmount);
@@ -37,7 +37,7 @@ namespace BreadShop
 
         public void PlaceOrder(int accountId, int orderId, int amount)
         {
-            var account = _accountRepository.getAccount(accountId);
+            var account = _accountRepository.GetAccount(accountId);
             if (account != null)
             {
                 var cost = amount * _priceOfBread;
@@ -61,7 +61,7 @@ namespace BreadShop
 
         public void CancelOrder(int accountId, int orderId)
         {
-            var account = _accountRepository.getAccount(accountId);
+            var account = _accountRepository.GetAccount(accountId);
             if (account == null)
             {
                 _events.AccountNotFound(accountId);
