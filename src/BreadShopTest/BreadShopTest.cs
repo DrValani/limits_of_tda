@@ -297,8 +297,8 @@ namespace BreadShopTest
             PlaceOrder(AccountIdOne, OrderIdTwo, quantityTwo, balance - Cost(quantityOne));
 
             ExpectOrderFilled(AccountIdOne, OrderIdOne, quantityOne);
-            var secondFillQuantity = 8;
 
+            var secondFillQuantity = 8;
             _breadShop.OnWholesaleOrder(quantityOne + secondFillQuantity);
             ExpectOrderFilled(AccountIdOne, OrderIdTwo, secondFillQuantity);
 
