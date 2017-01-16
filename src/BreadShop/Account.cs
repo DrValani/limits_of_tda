@@ -4,7 +4,7 @@ namespace BreadShop
 {
     public class Account
     {
-        private int _balance = 0;
+        private int _balance;
         private readonly Dictionary<int, int> _orders = new Dictionary<int, int>();
 
         public int? GetBalance()
