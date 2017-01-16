@@ -55,7 +55,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LimitsOfTDA\BreadShop.csproj">
+    <ProjectReference Include="..\BreadShop\BreadShop.csproj">
       <Project>{A67D67D7-5A0E-497E-9FCE-21589C952B6B}</Project>
       <Name>BreadShop</Name>
     </ProjectReference>

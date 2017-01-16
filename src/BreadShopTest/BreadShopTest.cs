@@ -6,7 +6,6 @@ namespace BreadShopTest
 {
     public class BreadShopTest
     {
-
         private IOutboundEvents _events;
         private BreadShop.BreadShop _breadShop;
 
