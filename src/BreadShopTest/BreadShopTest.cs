@@ -9,7 +9,6 @@ namespace BreadShopTest
         private IOutboundEvents _events;
         private BreadShop.BreadShop _breadShop;
 
-
         private const int AccountIdOne = 1;
         private const int AccountIdTwo = 2;
         private const int OrderIdOne = 1;
@@ -204,12 +203,13 @@ namespace BreadShopTest
             var quantity = 40;
             CreateAccountAndPlaceOrder(AccountIdOne, OrderIdOne, quantity);
 
-            var wholesaleOrderQuantity = quantity / 2;
-            _breadShop.OnWholesaleOrder(wholesaleOrderQuantity);
-            ExpectOrderFilled(AccountIdOne, OrderIdOne, wholesaleOrderQuantity);
+            var firstWholeSaleQuantity = 25;
+            _breadShop.OnWholesaleOrder(firstWholeSaleQuantity);
+            ExpectOrderFilled(AccountIdOne, OrderIdOne, firstWholeSaleQuantity);
 
-            _breadShop.OnWholesaleOrder(wholesaleOrderQuantity);
-            ExpectOrderFilled(AccountIdOne, OrderIdOne, wholesaleOrderQuantity);
+            var secondWholeSaleQuantity = quantity - firstWholeSaleQuantity;
+            _breadShop.OnWholesaleOrder(secondWholeSaleQuantity);
+            ExpectOrderFilled(AccountIdOne, OrderIdOne, secondWholeSaleQuantity);
         }
 
         [Test]
@@ -262,11 +262,11 @@ namespace BreadShopTest
             var quantityTwo = 55;
             CreateAccountAndPlaceOrder(AccountIdOne, OrderIdOne, quantityOne);
             CreateAccountAndPlaceOrder(AccountIdTwo, OrderIdTwo, quantityTwo);
+         
+            _breadShop.OnWholesaleOrder(quantityOne + quantityTwo);
 
             ExpectOrderFilled(AccountIdOne, OrderIdOne, quantityOne);
             ExpectOrderFilled(AccountIdTwo, OrderIdTwo, quantityTwo);
-
-            _breadShop.OnWholesaleOrder(quantityOne + quantityTwo);
         }
 
         [Test]
@@ -278,11 +278,12 @@ namespace BreadShopTest
             CreateAccountAndPlaceOrder(AccountIdOne, OrderIdOne, quantityOne);
             CreateAccountAndPlaceOrder(AccountIdTwo, OrderIdTwo, quantityTwo);
 
-            ExpectOrderFilled(AccountIdOne, OrderIdOne, quantityOne);
             var secondFillQuantity = 8;
+            
+            _breadShop.OnWholesaleOrder(quantityOne + secondFillQuantity);
+            ExpectOrderFilled(AccountIdOne, OrderIdOne, quantityOne);
             ExpectOrderFilled(AccountIdTwo, OrderIdTwo, secondFillQuantity);
 
-            _breadShop.OnWholesaleOrder(quantityOne + secondFillQuantity);
         }
 
         [Test]
@@ -296,10 +297,9 @@ namespace BreadShopTest
             PlaceOrder(AccountIdOne, OrderIdOne, quantityOne, balance);
             PlaceOrder(AccountIdOne, OrderIdTwo, quantityTwo, balance - Cost(quantityOne));
 
-            ExpectOrderFilled(AccountIdOne, OrderIdOne, quantityOne);
-
             var secondFillQuantity = 8;
             _breadShop.OnWholesaleOrder(quantityOne + secondFillQuantity);
+            ExpectOrderFilled(AccountIdOne, OrderIdOne, quantityOne);
             ExpectOrderFilled(AccountIdOne, OrderIdTwo, secondFillQuantity);
 
         }
